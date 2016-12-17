@@ -16,9 +16,8 @@ class Command(BaseCommand):
         # Named (optional) arguments
         #parser.add_argument('--license', help='Set License to generate stock')
         parser.add_argument('email', nargs='+', type=str)
-        parser.add_argument('eth_address', nargs='+', type=str)
         pass
 
     def handle(self, *args, **options):
         registry = IdentityRegistry()
-        registry.verify_email(email=options['email'][0], eth_address=options['eth_address'][0])
+        registry.remove_email(email=options['email'][0])

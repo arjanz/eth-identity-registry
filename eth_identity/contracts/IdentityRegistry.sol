@@ -1,6 +1,6 @@
 pragma solidity ^0.4.0;
 
-contract IdentityRegistry9 {
+contract IdentityRegistry {
     /* Define variable owner of the type address*/
     address public owner;
 	mapping(address => Account) accounts;
@@ -18,27 +18,10 @@ contract IdentityRegistry9 {
 	event EmailAddressRegistered(address sender, string emailAddress);
 
     /* this function is executed at initialization and sets the owner of the contract */
-    function IdentityRegistry9() { owner = msg.sender; }
+    function IdentityRegistry() { owner = msg.sender; }
 
     /* Function to recover the funds on the contract */
     function kill() { if (msg.sender == owner) selfdestruct(owner); }
-
-    /*
-    function status(string alias) {
-        Account account = accounts[msg.sender];
-        account.alias=alias;
-        account.currentMessage=0;
-    }
-
-
-    function send(string message) returns(bool sent) {
-    	Account account = accounts[msg.sender];
-    	account.messages[account.currentMessage] = Message({message: message});
-    	account.currentMessage++;
-    	NewMessage(msg.sender, account.alias, message);
-    	return true;
-    }
-    */
 
     function registerEmailAddress(address addr, string emailAddress) returns(bool registered) {
         // Only owner of contract is allowed to add email adresses to the registry

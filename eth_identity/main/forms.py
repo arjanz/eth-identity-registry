@@ -1,8 +1,6 @@
 from django import forms
 
 
-class VerifyEmailForm(forms.Form):
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-    sender = forms.EmailField()
-    cc_myself = forms.BooleanField(required=False)
+class RegistryEmailForm(forms.Form):
+    ethereum_address = forms.CharField(max_length=64)
+    email_address = forms.EmailField()

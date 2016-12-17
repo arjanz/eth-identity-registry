@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{% block main %}
+    {% if verified %}
+    <h1>Verification complete</h1>
+    <p>Email address <strong>{{ email }}</strong> added in the blockchain for Ethereum address <strong>{{ eth_address }}</strong></p>
+    <a href="{% url 'verify_email' %}" class="btn btn-primary">{% bootstrap_icon "plus" %} Add another</a>
+    {% else %}
+    <h1>Verification failed</h1>
+        <p>Email and Ethereum address could not be verified in registry contract</p>
+    {% endif %}
+{% endblock %}

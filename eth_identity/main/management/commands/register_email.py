@@ -21,4 +21,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         registry = IdentityRegistry()
-        registry.verify_email(email=options['email'][0], eth_address=options['eth_address'][0])
+        registry.register_email(email=options['email'][0], eth_address=options['eth_address'][0])

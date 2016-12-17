@@ -16,7 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from main.views import verify_email, verify_email_sent, verify_email_hash
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', verify_email, name='verify_email'),
+    url(r'^sent/$', verify_email_sent, name='verify_email_sent'),
+    url(r'^verify/(?P<email_id>[\w]+)/(?P<hash>[\w]+)/$', verify_email_hash, name='verify_email_hash'),
 ]

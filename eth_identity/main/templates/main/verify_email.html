@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Verify e-mail</title>
-</head>
-<body>
-    <form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Verify e-mail" />
+{% extends "main/base.html" %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{% block main %}
+    <h1>Add email to registry</h1>
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "envelope" %} Add Email address
+    </button>
+  {% endbuttons %}
 </form>
-</body>
-</html>
+{% endblock %}
